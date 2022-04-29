@@ -14,8 +14,6 @@ const Main = () => {
     const beerFun = async() => {
         const res = await axios.get(url + page)
         getBeer(res.data)
-        // console.log(loading);
-        console.log(beerData);
     }
 
     const getBeer = (res) => {
