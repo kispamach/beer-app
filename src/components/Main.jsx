@@ -25,6 +25,14 @@ const Main = () => {
         })
     }
 
+    const increasePage = () => {
+        setPage(page + 1)
+    }
+
+    const decreasePage = () => {
+        if(page > 1) setPage(page - 1)
+    }
+
     useEffect(() => {
         beerFun();
     }, [url, page])
@@ -36,8 +44,8 @@ const Main = () => {
                     <Card beer={beerData}/>
                     
                     <div className="btn-group">
-                        <button>Previous</button>
-                        <button>Next</button>
+                        <button onClick={decreasePage}>Previous</button>
+                        <button onClick={increasePage}>Next</button>
                     </div>
                 </div>
                 <div className="right-content">
