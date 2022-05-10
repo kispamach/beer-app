@@ -7,7 +7,8 @@ const Main = () => {
     const [beerData, setBeerData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [url, setUrl] = useState("https://api.punkapi.com/v2/beers?page=");
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(1);
+    const [beerInfo, setBeerInfo] = useState();
 
     const beerFun = async() => {
         setLoading(true)
@@ -45,7 +46,7 @@ const Main = () => {
         <>
             <div className="container">
                 <div className="left-content">
-                    <Card beer={beerData} loading={loading}/>
+                    <Card beer={beerData} loading={loading} beerInfo={(beer => setBeerInfo(beer))}/>
                     
                     <div className="btn-group">
                         <button onClick={decreasePage}>Previous</button>
@@ -53,7 +54,7 @@ const Main = () => {
                     </div>
                 </div>
                 <div className="right-content">
-                    <BeerInfo />
+                    <BeerInfo beerInfo={beerInfo}/>
                 </div>
             </div>
         </>

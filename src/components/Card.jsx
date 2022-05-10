@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ beer, loading }) => {
+const Card = ({ beer, loading, beerInfo }) => {
     return(
         <>  
             { loading 
@@ -8,7 +8,7 @@ const Card = ({ beer, loading }) => {
             : beer.map((item) => {
                 return(
                     <>
-                        <div className="card" key={item.id}>
+                        <div className="card" key={item.id} onClick={() => beerInfo(item)}>
                             <h2>{item.id}</h2>
                             <h2>{item.name}</h2>
                             <img src={item.image_url} alt={item.name} />
