@@ -7,13 +7,13 @@ const Main = () => {
     const [beerData, setBeerData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [url, setUrl] = useState("https://api.punkapi.com/v2/beers?page=");
-    const [nextPage, setNextPage] = useState();
-    const [previousPage, setPreivousPage] = useState();
     const [page, setPage] = useState(1)
 
     const beerFun = async() => {
+        setLoading(true)
         const res = await axios.get(url + page)
         getBeer(res.data)
+        setLoading(false)
     }
 
     const getBeer = (res) => {
@@ -26,11 +26,15 @@ const Main = () => {
     }
 
     const increasePage = () => {
+        setBeerData([])
         setPage(page + 1)
     }
 
     const decreasePage = () => {
-        if(page > 1) setPage(page - 1)
+        if(page > 1) {
+            setBeerData([])
+            setPage(page - 1)
+        }
     }
 
     useEffect(() => {
@@ -41,7 +45,7 @@ const Main = () => {
         <>
             <div className="container">
                 <div className="left-content">
-                    <Card beer={beerData}/>
+                    <Card beer={beerData} loading={loading}/>
                     
                     <div className="btn-group">
                         <button onClick={decreasePage}>Previous</button>

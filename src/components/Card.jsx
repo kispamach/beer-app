@@ -1,9 +1,11 @@
 import React from "react";
 
-const Card = (props) => {
+const Card = ({ beer, loading }) => {
     return(
         <>  
-            {props.beer.map((item) => {
+            { loading 
+            ? <h1>Loading...</h1>
+            : beer.map((item) => {
                 return(
                     <>
                         <div className="card" key={item.id}>
