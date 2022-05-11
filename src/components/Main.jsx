@@ -10,12 +10,11 @@ const Main = () => {
     const [searchUrl, setSearchUrl] = useState("https://api.punkapi.com/v2/beers?beer_name=");
     const [page, setPage] = useState(1);
     const [beerInfo, setBeerInfo] = useState();
-    const [beerSearch, setBeerSearch] = useState([]);
     const [searchfield, setSearchfield] = useState('');
 
     const beerFun = async() => {
         setLoading(true)
-        const res = await axios.get(url + page)
+        const res = await axios.get(url + page + '&per_page=24')
         getBeer(res.data)
         setLoading(false)
     }
@@ -27,7 +26,7 @@ const Main = () => {
     const searchBeer = async() => {
         setLoading(true)
         setBeerData([])
-        const res = await axios.get(searchUrl + searchfield + '&page=' + page)
+        const res = await axios.get(searchUrl + searchfield + '&page=' + page + '&per_page=24' )
         getBeer(res.data)
         setLoading(false)
     }

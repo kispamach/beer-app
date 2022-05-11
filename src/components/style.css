@@ -9,7 +9,11 @@
 }
 
 body {
-    background-color: #FCEEC8;
+    background-color: #e9e9e9;
+}
+
+button {
+    cursor: pointer;
 }
 
 .TitleSection {
@@ -28,9 +32,13 @@ body {
     width: 200px;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid #850505;
+    border: 1px solid #000000;
     font-size: 18px;
     padding-left: 10px;
+  }
+
+  .TitleSection input:checked {
+      border-color: aliceblue;
   }
 
   .TitleSection h1 {
@@ -46,7 +54,8 @@ body {
 }
 
 .left-content, .rigth-content {
-    flex-basis: 50%;    
+    flex-basis: 50%; 
+      
 }
 
 .left-content {
@@ -66,7 +75,8 @@ body {
 
 .card {
     width: 300px;
-    background-color: rgb(174, 245, 183);
+    /* max-height: 100px; */
+    background-color: #83e3aefd;
     border-radius: 0.2rem;
     box-shadow: 0 5px 5 px rgba(0, 0, 0, 0.5);
     padding: 0 1.5rem;
@@ -82,7 +92,7 @@ body {
     width: 50%;
     text-align: center;
     color: black;
-    position: static ;
+    /* position: static; */
     top: 100px;
     right: 10px; 
     padding: 1rem; 
@@ -106,6 +116,7 @@ body {
     justify-content: space-around; */
     align-items: center;
     margin-top: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .food-pairing .group {
@@ -116,7 +127,7 @@ body {
     color: white;
     padding: 0.4rem;
     font-size: 12px;
-    border-radius: 8px;    
+    border-radius: 2px;    
 }
 
 .malt{
@@ -137,7 +148,7 @@ body {
     color: white;
     padding: 0.4rem;
     font-size: 12px;
-    border-radius: 8px;
+    border-radius: 2px;
     font-size: 14px;
     letter-spacing: 1px;
 }
@@ -171,12 +182,12 @@ body {
 .btn-group button {
     outline: none;
     border: none;
-    width: 150px;
+    width: 134px;
     padding: 0.3rem 0;
-    margin: 1rem;
+    margin: 1rem 2rem 1rem 0;
     font-size: 17px;
     font-weight: bold;
     color: azure;
     background-color: darkred;
-    border-radius: 8px;
+    border-radius: 2px;
 }
