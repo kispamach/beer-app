@@ -41,13 +41,14 @@ const Main = () => {
     }
 
     const increasePage = () => {
-        if (beerData.length > 24) {
+        if (beerData.length > 23) {
             setBeerData([])
             setPage(page + 1)
         }
     }
 
     const decreasePage = () => {
+        const prevButton = document.querySelector(".prev-btn")
         if(page > 1) {
             setBeerData([])
             setPage(page - 1)
@@ -68,15 +69,19 @@ const Main = () => {
             </div>
             <div className="container">
                 <div className="left-content">
-                    <Card beer={beerData} loading={loading} beerInfo={(beer => setBeerInfo(beer))}/>                    
+                    {/* <div className="card-container"> */}
+                        <Card beer={beerData} loading={loading} beerInfo={(beer => setBeerInfo(beer))}/>                    
+                    {/* </div> */}
                 </div>
                 <div className="right-content">
-                    <BeerInfo beerInfo={beerInfo}/>
+                    <div className="beer-container">
+                        <BeerInfo beerInfo={beerInfo}/>
+                    </div>
                 </div>
             </div>
             <div className="btn-group">
-                <button onClick={decreasePage}>Previous</button>
-                <button onClick={increasePage}>Next</button>
+                <button onClick={decreasePage} className="prev-btn">Previous</button>
+                <button onClick={increasePage} className="next-btn">Next</button>                          
             </div>
         </>
     )
